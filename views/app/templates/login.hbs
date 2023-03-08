@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+    <head>
+        <meta name="viewport" content="with=device-width,scale=1.0">
+        <title>Credit Card Fraud Detection</title>
+        <link href="{{ url_for('static', filename='styles/style.css' )}}" rel="stylesheet" type="text/css" />
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;600;700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.1/css/fontawesome.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+    </head>
+    <body>
+        <section>
+            <img src="{{url_for('static',filename="styles/cc.jpeg")}}" style="min-height:150vh;
+            width:100%; background-repeat: no-repeat; background-size: 100% 100%;
+            background-position: center;
+            position:relative;
+            scroll-behavior: smooth;
+            text-align: center;
+        ">
+
+            <nav>
+                <img src="{{url_for('static',filename="styles/fraud.jpeg")}}">
+
+             <div class="nav-links">
+
+                <ul>
+                    <li><a href="{{url_for('home')}}">HOME</a></li>
+                    <li><a href="{{url_for('login')}}">LOGIN</a></li>
+                    <li><a href="{{url_for('signup')}}">SIGN UP</a></li>
+                    <li><a href="{{url_for('predict_fraud')}}">PREDICTION</a></li>
+
+                    <!---<li><a href="{{url_for('logout')}}">LOGOUT</a></li>--->
+
+
+
+                </ul>
+
+
+             </div>
+
+            </nav>
+        </section>
+  <!---LOGIN content-->
+  
+
+        {%if msg=="Logged in successfully !"%}
+         <div class="alert-box"> 
+        <div class="alert-box-green">
+           <p >{{msg}}</p>
+          </div>
+        </div>
+       {%elif msg=="Incorrect email / password !"%}
+       <div class="alert-box"> 
+        <div class="alert-box-red">
+           <p >{{msg}}</p>
+          </div>
+        </div>
+        {% endif %}
+
+
+
+
+
+
+     <div class="login">
+      <img src="{{url_for('static',filename="styles/avatar.jpeg")}}"      class="avatar">
+      <h1>Login Here</h1>
+      <form action="{{ url_for('login') }}" method="post">
+        <p>Enter your Email</p>
+        <input type="email" id="email" name="email" placeholder="Email" required>
+        <p>Enter Password</p>
+        <input type="password" id="pass" name="password" placeholder="Password" required>
+        <input type="submit" id="btn" name="login" value="Login">
+       <!--- <a href="#">Forgot Password</a><br>--->
+        <a href="/signup">Don't have an account? SignUp</a>
+    </form>
+     </div>
+      
+
+
+
+ <section class="footer">
+        <h1>Contact Us</h1>
+        <div class="icons">
+           <i class="fa fa-facebook"></i>
+           <i class="fa fa-twitter"></i>
+           <i class="fa fa-instagram"></i>
+           <i class="fa fa-linkedin"></i>
+           </div>
+      </section>
+   
+
+
+<!---<script src="form.js"></script>-->
+
+<script type = "text/javascript" 
+src = "{{ url_for('static', filename = 'routes/auth.js') }}" ></script>
+
+<script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
+
+
+
+
+   </body>
+
+
+    </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
